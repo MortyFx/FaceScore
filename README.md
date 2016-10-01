@@ -23,5 +23,5 @@ $data = $FaceScore->getScore($img_url);
 		)
 
 ## 预览
-(http://github.com/Patrick-95/FaceScore/raw/master/screenshot.jpeg)
+![image](http://github.com/Patrick-95/FaceScore/raw/master/screenshot.jpeg)
 
