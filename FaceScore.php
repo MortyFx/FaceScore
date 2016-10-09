@@ -17,8 +17,13 @@ class FaceScore
     {
         $image = base64_encode(file_get_contents($image));
         $res = $this->curl($this->upload_url, $image);
-        $upload_photo = $res['Host'] . $res['Url'];
-        return $upload_photo;
+        if(count($res) != 0){
+            $upload_photo = $res['Host'] . $res['Url'];
+            return $upload_photo;
+        }else{
+            return 'error';
+        }
+
     }
 
     /**
@@ -29,6 +34,13 @@ class FaceScore
     public function getScore($image)
     {
         $upload_photo = $this->uploadImage($image);
+        if($upload_photo == 'error'){
+            $data = array(
+                'status' => 'error',
+                'message' => '获取源图片信息失败'
+            );
+            return $data;
+        }
         list($s1, $s2) = explode(' ', microtime());
         $mtime = (float)sprintf('%.0f', (floatval($s1) + floatval($s2)) * 1000);
         $data = array(
@@ -41,7 +53,7 @@ class FaceScore
         $pattern = '/\d+\.\d+/';
         preg_match($pattern, $text, $score);
         $data = array(
-            'score' => $score[0],
+            'score' => empty($score[0])?0:$score[0],
             'text' => $text,
             'img_url' => $res['content']['imageUrl']
         );
