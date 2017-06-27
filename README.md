@@ -1,7 +1,7 @@
 # FaceScore
-微软小冰 —— 测颜值接口
+Microsolf Xiaobing —— Rating your face score.
 
-## 使用
+## Usage
 ```php 
   
 require_once './FaceScore.php';
@@ -11,7 +11,7 @@ $data = $FaceScore->getScore($img_url);
   
 ```
 
-## 返回数组
+## Return Array
 	Array ( 
 
 		[score] => 2.9 
@@ -22,7 +22,7 @@ $data = $FaceScore->getScore($img_url);
 
 		)
 
-## 预览
+## Demo Preview
 
 ![image](https://github.com/Patrick-95/FaceScore/raw/master/screenshot.jpeg)
 
