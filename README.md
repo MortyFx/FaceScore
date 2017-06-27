@@ -1,5 +1,5 @@
 # FaceScore
-Microsolf Xiaobing —— Rating your face score.
+Microsoft Xiaobing —— Rating your face score.
 
 ## Usage
 ```php 
